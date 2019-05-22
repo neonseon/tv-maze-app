@@ -1,4 +1,11 @@
-<p>
-  tv-show-details works!
-</p>
+<section>
+  <h3>{{show.title}}</h3>
+  <img [src]='show.image' />
+  <p>{{show.description}}</p>
+  <p><span class="bold">Cast:</span> {{show.cast}}</p>
+  <p><span class="bold">Rating:</span> {{show.rating}}</p>
+  <p><span class="bold">Genre:</span> {{show.genre}}</p>
+  <!-- Below is just to test that we can see the ID since we'll need it for the Show Cast Endpoint -->
+  <span>{{show.id}}</span>  
+</section>
 
