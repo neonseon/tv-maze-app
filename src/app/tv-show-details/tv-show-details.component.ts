@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ITVShowDetails } from '../itvshow-details';
+import { TvShowService } from '../tv-show/tv-show.service';
 
 @Component({
   selector: 'app-tv-show-details',
@@ -9,19 +10,12 @@ import { ITVShowDetails } from '../itvshow-details';
 export class TVShowDetailsComponent implements OnInit {
 
   show: ITVShowDetails
-  constructor() {
-    this.show = {
-      title: 'The Mindy Project',
-      image: 'https://tvseriesfinale.com/wp-content/uploads/2016/05/The-Mindy-Project-TV-show-on-Hulu-season-5-renewal-canceled-or-renewed-590x332.jpeg',
-      description: 'A young Ob/Gyn doctor balances her personal and professional life, surrounded by quirky co-workers in a small office.',
-      cast: 'Mindy Kaling, Ike Barinholtz, Ed Weeks',
-      rating: 8,
-      genre: 'Comedy',
-      id: 912      
-    }
+  constructor(private tvShowService:TvShowService) {
+    
    }
 
   ngOnInit() {
+    this.tvShowService.getTvShow('the-mindy-project').subscribe(data=>this.show=data);
   }
 
 }

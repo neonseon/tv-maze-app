@@ -1,7 +1,7 @@
 <section>
   <h3>{{show.title}}</h3>
   <img [src]='show.image' />
-  <p>{{show.description}}</p>
+  <p [innerHTML]="show.description"></p>
   <p><span class="bold">Cast:</span> {{show.cast}}</p>
   <p><span class="bold">Rating:</span> {{show.rating}}</p>
   <p><span class="bold">Genre:</span> {{show.genre}}</p>
