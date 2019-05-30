@@ -40,4 +40,7 @@ export class TvShowService {
       id:data.id
     }
   }
+  getCast(id:number){
+    return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/shows/${id}/cast`)
+  }
 }
