@@ -30,9 +30,9 @@ export class TvShowService {
   getTvShow(name:string){
     return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${name}`).pipe(map(data=>this.transformToITvShowDetails(data)))
   }
-  getTvShowCast(id:number){
+  getCast(id:number){
     return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/shows/${id}/cast`)
-  }  
+  }
   private transformToITvShowDetails(data:ITvShow):ITVShowDetails{
     return{
       title:data.name,
@@ -44,7 +44,5 @@ export class TvShowService {
       cast:data.cast
     }
   }
-  getCast(id:number){
-    return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/shows/${id}/cast`)
-  }
+
 }

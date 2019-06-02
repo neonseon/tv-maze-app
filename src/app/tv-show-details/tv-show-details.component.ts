@@ -21,7 +21,7 @@ export class TVShowDetailsComponent implements OnInit {
 
     this.tvShowService.getTvShow('the-mindy-project').subscribe(data => {
    
-      this.tvShowService.getTvShowCast(data.id).subscribe(loadedCast => {
+      this.tvShowService.getCast(data.id).subscribe(loadedCast => {
 
         for (let prop in loadedCast) {
           this.finalCast.push(loadedCast[prop].person.name);
