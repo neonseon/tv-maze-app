@@ -9,13 +9,30 @@ import { TvShowService } from '../tv-show/tv-show.service';
 })
 export class TVShowDetailsComponent implements OnInit {
 
-  show: ITVShowDetails
+  show: ITVShowDetails;
+  loadedCast: Array<object> = [];
+  finalCast: any[] = [];
+
   constructor(private tvShowService:TvShowService) {
     
-   }
+  }
 
   ngOnInit() {
-    this.tvShowService.getTvShow('the-mindy-project').subscribe(data=>this.show=data);
-  }
+
+    this.tvShowService.getTvShow('the-mindy-project').subscribe(data => {
+   
+      this.tvShowService.getTvShowCast(data.id).subscribe(loadedCast => {
+
+        for (let prop in loadedCast) {
+          this.finalCast.push(loadedCast[prop].person.name);
+        }
+
+        data.cast = this.finalCast;
+
+        this.show = data;
+
+      });
+    });
+  } 
 
 }
