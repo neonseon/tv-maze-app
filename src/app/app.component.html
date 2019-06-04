@@ -1,9 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align: center;">
   <div>
-    <h1>Welcome to my TV App</h1>
+    <mat-toolbar>
+      Welcome to my TV App</mat-toolbar color="primary">
     <div>Find information about your favorite shows, right now!</div>
-    <h2>TV Show Details</h2>
-  </div>
-  <app-tv-show-details></app-tv-show-details>
+    <div>
+      <app-tv-show-search></app-tv-show-search>
+    </div>
+    <mat-card>
+      <h2>TV Show Details</h2>
+<app-tv-show-details></app-tv-show-details>
+</mat-card>
 </div>

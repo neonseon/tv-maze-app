@@ -24,10 +24,11 @@ interface ITvShow{
 })
 export class TvShowService {
 
-  constructor(private httpClient:HttpClient) { 
+  constructor(private httpClient:HttpClient) {
       
   }
   getTvShow(name:string){
+      }
     return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${name}`).pipe(map(data=>this.transformToITvShowDetails(data)))
   }
   getCast(id:number){
