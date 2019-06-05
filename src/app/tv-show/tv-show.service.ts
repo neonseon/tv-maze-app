@@ -4,6 +4,7 @@ import { generate } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ITVShowDetails } from '../itvshow-details';
 import {map} from 'rxjs/operators';
+import { TvShowSearchComponent } from '../tv-show-search/tv-show-search.component';
 
 interface ITvShow{
   name:string,
@@ -24,14 +25,18 @@ interface ITvShow{
 })
 export class TvShowService {
 
-  constructor(private httpClient:HttpClient) {
-      
-  }
-  getTvShow(name:string){
-      }
-    return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${name}`).pipe(map(data=>this.transformToITvShowDetails(data)))
-  }
+  constructor(private httpClient:HttpClient) {}
+
+  getTvShow(search:string){
+      } let uriParams = ''
+      if (typeof TvShowSearchComponent === 'string') {
+        uriParams = `q=${TvShowSearchComponent}`
+      } else { uriParams = `name=${TvShowSearchComponent}`}
+
+    return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${uriParams}`).pipe(map(data=>this.transformToITvShowDetails(data)))
+  } 
   getCast(id:number){
+  
     return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/shows/${id}/cast`)
   }
   private transformToITvShowDetails(data:ITvShow):ITVShowDetails{
