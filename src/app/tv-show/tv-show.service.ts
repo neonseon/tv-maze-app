@@ -28,12 +28,9 @@ export class TvShowService {
   constructor(private httpClient:HttpClient) {}
 
   getTvShow(search:string){
-      } let uriParams = ''
-      if (typeof TvShowSearchComponent === 'string') {
-        uriParams = `q=${TvShowSearchComponent}`
-      } else { uriParams = `name=${TvShowSearchComponent}`}
+      
 
-    return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${uriParams}`).pipe(map(data=>this.transformToITvShowDetails(data)))
+    return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${search}`).pipe(map(data=>this.transformToITvShowDetails(data)))
   } 
   getCast(id:number){
   

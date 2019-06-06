@@ -7,7 +7,7 @@ import { TVShowDetailsComponent } from './tv-show-details/tv-show-details.compon
 import { TvShowService } from './tv-show/tv-show.service'; 
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import{MatFormFieldModule,MatInputModule,MatButtonModule,MatToolbarModule,MatCardModule} from '@angular/material';
+import{MatFormFieldModule,MatInputModule,MatButtonModule,MatToolbarModule,MatCardModule, MatIconModule} from '@angular/material';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { TvShowSearchComponent } from './tv-show-search/tv-show-search.component';
 
@@ -38,6 +38,7 @@ import { TvShowSearchComponent } from './tv-show-search/tv-show-search.component
 		MatButtonModule,
 		MatToolbarModule,
     MatCardModule,
+    MatIconModule,
     BrowserAnimationsModule
   ],
   providers: [TvShowService],
