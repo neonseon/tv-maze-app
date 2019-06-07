@@ -10,6 +10,8 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./tv-show-search.component.css']
 })
 export class TvShowSearchComponent implements OnInit {
+
+  @Output() searchEvent = new EventEmitter<string>();
   
   search = new FormControl('',[Validators.minLength(3)])
 
@@ -18,11 +20,7 @@ export class TvShowSearchComponent implements OnInit {
   ngOnInit() {
     this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue : string) => {
       if(!this.search.invalid){
-        if(searchValue){
-        const userInput = searchValue.replace(' ','%20');
-        this.tvshowservice.getTvShow(userInput).subscribe(data => console.log(data))
-
-      }
+        this.searchEvent.emit(searchValue);
     }
     
     
