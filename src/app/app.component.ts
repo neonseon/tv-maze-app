@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ITVShowDetails } from './itvshow-details';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tv-maze-app';
+
+  showDetails : ITVShowDetails
+
+  doSearch(searchValue){
+    
+  }
 }

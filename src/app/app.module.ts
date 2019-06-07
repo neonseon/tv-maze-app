@@ -28,7 +28,8 @@ import { TvShowSearchComponent } from './tv-show-search/tv-show-search.component
 		MatInputModule,
 		MatButtonModule,
 		MatToolbarModule,
-		MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   exports: [
     FormsModule,

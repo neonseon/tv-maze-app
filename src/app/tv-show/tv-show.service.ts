@@ -29,7 +29,7 @@ export class TvShowService {
 
   getTvShow(search:string){
       
-
+    
     return this.httpClient.get<ITvShow>(`${environment.baseUrl}api.tvmaze.com/singlesearch/shows?q=${search}`).pipe(map(data=>this.transformToITvShowDetails(data)))
   } 
   getCast(id:number){
