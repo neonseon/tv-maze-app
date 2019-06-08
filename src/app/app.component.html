@@ -1,16 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align: center;">
+<header>
+  <mat-toolbar color="primary" role="heading">
+    <h2>
+      <i class="material-icons">live_tv</i>
+      <div><span>Find a </span>TV Show</div>
+    </h2>
+  </mat-toolbar>
+</header>   
+<main class="text-center">
   <div>
-    <mat-toolbar color="primary">Welcome to my TV App</mat-toolbar>
-    <div>
-      Find information about your favorite shows, right now!
-    </div>
-    <div>
-      <app-tv-show-search (searchEvent) ="doSearch($event)"></app-tv-show-search>
-    </div>
-    <mat-card>
-      <h2>TV Show Details</h2>
-      <app-tv-show-details [show]= "currentshow"></app-tv-show-details>
-    </mat-card>
+    <app-tv-show-search (searchEvent) ="doSearch($event)"></app-tv-show-search>
   </div>
-</div>
+  <app-tv-show-details [show]= "currentshow"></app-tv-show-details>
+</main>
+<footer class="text-center text-muted">
+    <small>Powered by <a href="https://www.tvmaze.com/api" target="_blank">TVmaze API</a> Copyright © 2019</small>
+</footer>
