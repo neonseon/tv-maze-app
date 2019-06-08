@@ -10,8 +10,6 @@ import { TvShowService } from '../tv-show/tv-show.service';
 export class TVShowDetailsComponent implements OnInit {
 
   @Input() show: ITVShowDetails;
-  loadedCast: Array<object> = [];
-  finalCast: any[] = [];
 
   constructor() {
     

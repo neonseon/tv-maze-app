@@ -9,6 +9,9 @@ import { TvShowService } from './tv-show/tv-show.service';
 })
 export class AppComponent {
   title = 'tv-maze-app';
+ 
+  loadedCast: Array<object> = [];
+  finalCast: any[] = [];
 
   constructor(private tvshowservice : TvShowService){
 
@@ -19,8 +22,26 @@ export class AppComponent {
 
   doSearch(searchValue){
     if(searchValue){
+
+      this.loadedCast.length = 0;
+      this.finalCast.length = 0;
+
       const userInput = searchValue.replace(' ','%20');
-      this.tvshowservice.getTvShow(userInput).subscribe(data => this.currentshow = data)
+    
+      this.tvshowservice.getTvShow(userInput).subscribe(data => {
+   
+        this.tvshowservice.getCast(data.id).subscribe(loadedCast => {
+  
+          for (let prop in loadedCast) {
+            this.finalCast.push(loadedCast[prop].person.name);
+          }
+  
+          data.cast = this.finalCast;
+  
+          this.currentshow = data;
+  
+        });
+      });
 
     }
 
