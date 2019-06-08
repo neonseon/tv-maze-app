@@ -12,7 +12,7 @@ interface ITvShow{
   genres:string,
   summary:string,  
   image:{
-    medium:string
+    original:string
   },
   rating:{
     average:number
@@ -39,7 +39,7 @@ export class TvShowService {
   private transformToITvShowDetails(data:ITvShow):ITVShowDetails{
     return{
       title:data.name,
-      image:data.image.medium,
+      image:data.image.original,
       description:data.summary,
       rating:data.rating.average,
       genre:data.genres,
