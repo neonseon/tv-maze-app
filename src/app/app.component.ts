@@ -31,13 +31,13 @@ export class AppComponent {
       this.tvshowservice.getTvShow(userInput).subscribe(data => {
    
         this.tvshowservice.getCast(data.id).subscribe(loadedCast => {
-  
+          console.log(loadedCast);
           for (let prop in loadedCast) {
             this.finalCast.push(loadedCast[prop].person.name);
           }
-  
+          console.log(this.finalCast);
           data.cast = this.finalCast;
-  
+          console.log(data);
           this.currentshow = data;
   
         });
