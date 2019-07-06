@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ITVShowDetails } from './itvshow-details';
-import { TvShowService } from './tv-show/tv-show.service';
+import { TvShowService, ITvShowService } from './tv-show/tv-show.service';
 
 @Component({
   selector: 'app-root',

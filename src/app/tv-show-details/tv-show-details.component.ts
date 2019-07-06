@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ITVShowDetails } from '../itvshow-details';
-import { TvShowService } from '../tv-show/tv-show.service';
 
 @Component({
   selector: 'app-tv-show-details',
