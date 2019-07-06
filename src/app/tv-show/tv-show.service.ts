@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { generate } from 'rxjs';
+import { generate, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ITVShowDetails } from '../itvshow-details';
 import {map} from 'rxjs/operators';
 import { TvShowSearchComponent } from '../tv-show-search/tv-show-search.component';
 
+export interface ITvShowService{
+  getTvShow(search:string):Observable<ITVShowDetails>
+}
 interface ITvShow{
   name:string,
   id:number,
@@ -23,7 +26,7 @@ interface ITvShow{
 @Injectable({
   providedIn: 'root'
 })
-export class TvShowService {
+export class TvShowService implements ITvShowService {
 
   constructor(private httpClient:HttpClient) {}
 

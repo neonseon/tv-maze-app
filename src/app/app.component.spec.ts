@@ -7,6 +7,8 @@ import { TVShowDetailsComponent } from './tv-show-details/tv-show-details.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TvShowService } from './tv-show/tv-show.service';
+import { TvShowServiceFake } from './tv-show/tv-show.service.fake';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -29,6 +31,7 @@ describe('AppComponent', () => {
         TvShowSearchComponent,
         TVShowDetailsComponent
       ],
+      providers:[{provide:TvShowService,useClass:TvShowServiceFake}],
     }).compileComponents();
   }));
 
