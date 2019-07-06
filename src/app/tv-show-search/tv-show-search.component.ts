@@ -15,7 +15,7 @@ export class TvShowSearchComponent implements OnInit {
   
   search = new FormControl('',[Validators.minLength(3)])
 
-  constructor(private tvshowservice : TvShowService) { }
+  constructor() { }
 
   ngOnInit() {
     this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue : string) => {
